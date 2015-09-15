@@ -82,32 +82,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWF-Bl-qbm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vWF-Bl-qbm">
+                                <rect key="frame" x="-67" y="44" width="82" height="1"/>
                                 <color key="backgroundColor" red="0.87450980389999999" green="0.5568627451" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <searchBar contentMode="redraw" placeholder="搜索:歌单" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFD-ty-DAx">
+                            <searchBar contentMode="redraw" placeholder="搜索:歌单" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IgH-2L-Q8j">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NZH-gV-1ul">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pwY-Xh-O71">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dFD-ty-DAx" firstAttribute="leading" secondItem="vWF-Bl-qbm" secondAttribute="leading" id="9z6-IT-dh6"/>
-                            <constraint firstItem="NZH-gV-1ul" firstAttribute="top" secondItem="dFD-ty-DAx" secondAttribute="bottom" id="SW1-nh-HPV"/>
-                            <constraint firstItem="8Pa-U7-Yjc" firstAttribute="top" secondItem="vWF-Bl-qbm" secondAttribute="bottom" constant="44" id="YyV-0Z-kzX"/>
-                            <constraint firstItem="dFD-ty-DAx" firstAttribute="top" secondItem="8Pa-U7-Yjc" secondAttribute="bottom" id="ZUZ-P6-gwd"/>
-                            <constraint firstItem="KSQ-Js-Tsg" firstAttribute="top" secondItem="NZH-gV-1ul" secondAttribute="bottom" id="bZC-eh-Ial"/>
-                            <constraint firstItem="dFD-ty-DAx" firstAttribute="leading" secondItem="ocd-pV-4Gx" secondAttribute="leading" id="ceQ-3M-gQd"/>
-                            <constraint firstItem="vWF-Bl-qbm" firstAttribute="top" secondItem="ocd-pV-4Gx" secondAttribute="top" id="g0g-Ur-dp9"/>
-                            <constraint firstAttribute="trailing" secondItem="dFD-ty-DAx" secondAttribute="trailing" id="gdd-nR-xlI"/>
-                            <constraint firstAttribute="trailing" secondItem="NZH-gV-1ul" secondAttribute="trailing" id="s6x-85-La5"/>
-                            <constraint firstItem="NZH-gV-1ul" firstAttribute="leading" secondItem="ocd-pV-4Gx" secondAttribute="leading" id="uVA-nK-WDM"/>
-                            <constraint firstItem="dFD-ty-DAx" firstAttribute="trailing" secondItem="vWF-Bl-qbm" secondAttribute="trailing" id="uaR-Nc-TBX"/>
+                            <constraint firstAttribute="trailing" secondItem="IgH-2L-Q8j" secondAttribute="trailing" id="C7W-Vc-3PL"/>
+                            <constraint firstItem="pwY-Xh-O71" firstAttribute="leading" secondItem="ocd-pV-4Gx" secondAttribute="leading" id="FWj-jK-ahD"/>
+                            <constraint firstItem="IgH-2L-Q8j" firstAttribute="leading" secondItem="ocd-pV-4Gx" secondAttribute="leading" id="JYV-LS-RXP"/>
+                            <constraint firstItem="KSQ-Js-Tsg" firstAttribute="top" secondItem="pwY-Xh-O71" secondAttribute="bottom" id="SBX-Sh-Xn7"/>
+                            <constraint firstItem="IgH-2L-Q8j" firstAttribute="top" secondItem="8Pa-U7-Yjc" secondAttribute="bottom" id="TX8-2z-lMd"/>
+                            <constraint firstItem="pwY-Xh-O71" firstAttribute="top" secondItem="IgH-2L-Q8j" secondAttribute="bottom" id="ZpU-gv-sDY"/>
+                            <constraint firstAttribute="trailing" secondItem="pwY-Xh-O71" secondAttribute="trailing" id="o1k-2h-YjI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Music" id="UyJ-lq-Vyh">
@@ -120,7 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="NZH-gV-1ul" id="lhA-wm-gAg"/>
+                        <outlet property="tableView" destination="pwY-Xh-O71" id="Kph-6S-5IU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKN-8c-lcF" userLabel="First Responder" sceneMemberID="firstResponder"/>

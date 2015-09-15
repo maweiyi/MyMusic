@@ -10,6 +10,9 @@ import UIKit
 
 class SongTableViewController: UITableViewController {
     
+    var songIdArray: NSMutableArray? = nil //创建一个数组用来存储歌单中歌曲的ID
+    var tablesIndex: Int = 0
+    
      //生成一个单例
     class var songShareInstace: SongTableViewController {
         struct SingleTon {
@@ -25,6 +28,9 @@ class SongTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        print("tableIndex-------\(self.tablesIndex)")
+        print("songIdArray------\(self.songIdArray)")
         
         
     }
