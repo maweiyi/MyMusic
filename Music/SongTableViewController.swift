@@ -31,6 +31,31 @@ class SongTableViewController: UITableViewController {
         
         print("tableIndex-------\(self.tablesIndex)")
         print("songIdArray------\(self.songIdArray)")
+        let dictionary: NSDictionary = NSDictionary(objectsAndKeys: (songIdArray?.objectAtIndex(tablesIndex))!, "id")
+        var jsonData: NSData = NSData()
+        
+        do {
+            
+            jsonData = try NSJSONSerialization.dataWithJSONObject(dictionary, options: NSJSONWritingOptions.PrettyPrinted)
+        } catch {
+            
+        }
+        
+        let stringUrl: NSString = NSString(string: "http://127.0.0.1:8000/music/hello/")
+        let url: NSURL = NSURL(string: stringUrl as String)!
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = jsonData
+        
+        let session: NSURLSession = NSURLSession.sharedSession()
+        
+        session.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) in
+            
+        })?.resume()
+        
+        
+        
         
         
     }
