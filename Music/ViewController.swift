@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //从服务端请求数据
         self.tableView.hidden = true
         print("Hello World1")
+        //self.navigationController?.navigationBar.
         self.getDataFromServer()
         
 }
@@ -48,12 +49,13 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         //var layer: CALayer
-        let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
+        /*let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
         let url: NSURL = NSURL(string: stringUrl as String)!
         print("\(url)")
         var data: NSData = NSData(contentsOfURL: url)!
         
-        cell.imageView?.image = UIImage(data: data)
+        cell.imageView?.image = UIImage(data: data)*/
+        cell.imageView?.image = UIImage(named: "headerImage")
         cell.imageView?.layer.cornerRadius = 30
         cell.imageView?.clipsToBounds = true
         
@@ -69,6 +71,12 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 88.0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let songTableView: SongTableViewController = SongTableViewController.songShareInstace
+        self.navigationController?.pushViewController(songTableView, animated: true)
+        
     }
     //从服务端获取数据
     func getDataFromServer() {
