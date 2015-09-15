@@ -15,6 +15,7 @@
 		E4864FB21BA7F0E6000EE5B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4864FB11BA7F0E6000EE5B6 /* Main.storyboard */; };
 		E4864FB41BA7F16D000EE5B6 /* TopPlayLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864FB31BA7F16D000EE5B6 /* TopPlayLists.swift */; };
 		E4864FB61BA7F256000EE5B6 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864FB51BA7F256000EE5B6 /* TableCell.swift */; };
+		E4FE943D1BA80FB20000A549 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E4864FB11BA7F0E6000EE5B6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E4864FB31BA7F16D000EE5B6 /* TopPlayLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPlayLists.swift; sourceTree = "<group>"; };
 		E4864FB51BA7F256000EE5B6 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				E4864F9B1BA7EBBA000EE5B6 /* ViewController.swift */,
 				E4864FB51BA7F256000EE5B6 /* TableCell.swift */,
+				E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				E4864F9C1BA7EBBA000EE5B6 /* ViewController.swift in Sources */,
 				E4864FB41BA7F16D000EE5B6 /* TopPlayLists.swift in Sources */,
 				E4864F9A1BA7EBBA000EE5B6 /* AppDelegate.swift in Sources */,
+				E4FE943D1BA80FB20000A549 /* SongTableViewController.swift in Sources */,
 				E4864FA21BA7EBBA000EE5B6 /* Music.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
