@@ -49,13 +49,13 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         //var layer: CALayer
-        let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
+        /*let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
         let url: NSURL = NSURL(string: stringUrl as String)!
         print("\(url)")
         var data: NSData = NSData(contentsOfURL: url)!
         
-        cell.imageView?.image = UIImage(data: data)
-        //cell.imageView?.image = UIImage(named: "headerImage")
+        cell.imageView?.image = UIImage(data: data)*/
+        cell.imageView?.image = UIImage(named: "headerImage")
         cell.imageView?.layer.cornerRadius = 30
         cell.imageView?.clipsToBounds = true
         
@@ -77,6 +77,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         let songTableView: SongTableViewController = SongTableViewController.songShareInstace
         songTableView.songIdArray = topPlayLists.listId
         songTableView.tablesIndex = indexPath.row
+        //songTableView.viewDidLoad()
         self.navigationController?.pushViewController(songTableView, animated: true)
         
     }

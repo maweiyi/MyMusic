@@ -12,6 +12,7 @@ class SongTableViewController: UITableViewController {
     
     var songIdArray: NSMutableArray? = nil //创建一个数组用来存储歌单中歌曲的ID
     var tablesIndex: Int = 0
+    var songArray: SongDetailList = SongDetailList()
     
      //生成一个单例
     class var songShareInstace: SongTableViewController {
@@ -22,15 +23,15 @@ class SongTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
+        
+        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        print("tableIndex-------\(self.tablesIndex)")
-        print("songIdArray------\(self.songIdArray)")
+       // print("tableIndex-------\(self.tablesIndex)")
+        //print("songIdArray------\(self.songIdArray)")
         let dictionary: NSDictionary = NSDictionary(objectsAndKeys: (songIdArray?.objectAtIndex(tablesIndex))!, "id")
         var jsonData: NSData = NSData()
         
@@ -51,7 +52,26 @@ class SongTableViewController: UITableViewController {
         
         session.dataTaskWithRequest(request, completionHandler: {
             (data, response, error) in
+            var jsonArray: NSMutableArray? = NSMutableArray()
             
+            do{
+                
+                jsonArray = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSMutableArray
+            } catch{
+                
+            }
+            //print("\(jsonArray)")
+            self.songArray.songIDS.addObjectsFromArray((jsonArray?.objectAtIndex(0))! as! [AnyObject])
+            self.songArray.songNames.addObjectsFromArray((jsonArray?.objectAtIndex(1))! as! [AnyObject])
+            self.songArray.songTimes.addObjectsFromArray((jsonArray?.objectAtIndex(2))! as! [AnyObject])
+            self.songArray.songMp3Url.addObjectsFromArray((jsonArray?.objectAtIndex(3))! as! [AnyObject])
+            self.tableView.reloadData()
+            self.tableView.setNeedsDisplay()
+            
+            print("songIDS----\(self.songArray.songIDS.count)")
+            print("songNames-----\(self.songArray.songNames.count)")
+            print("songTimes-----\(self.songArray.songTimes.count)")
+            print("songMp3Url-----\(self.songArray.songMp3Url.count)")
         })?.resume()
         
         
@@ -69,23 +89,23 @@ class SongTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.songArray.songNames.count
     }
 
-    /*
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         // Configure the cell...
+       cell.textLabel?.text = self.songArray.songNames[indexPath.row] as? String
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
