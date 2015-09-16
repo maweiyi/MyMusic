@@ -23,6 +23,7 @@ class SongTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        // self.tableView.hidden = true
         
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -65,6 +66,7 @@ class SongTableViewController: UITableViewController {
             self.songArray.songNames.addObjectsFromArray((jsonArray?.objectAtIndex(1))! as! [AnyObject])
             self.songArray.songTimes.addObjectsFromArray((jsonArray?.objectAtIndex(2))! as! [AnyObject])
             self.songArray.songMp3Url.addObjectsFromArray((jsonArray?.objectAtIndex(3))! as! [AnyObject])
+            self.tableView.hidden = false
             self.tableView.reloadData()
             self.tableView.setNeedsDisplay()
             
@@ -102,9 +104,14 @@ class SongTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         // Configure the cell...
+        
        cell.textLabel?.text = self.songArray.songNames[indexPath.row] as? String
-
+       cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 66.0
     }
 
     /*
