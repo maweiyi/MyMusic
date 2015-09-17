@@ -122,7 +122,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
                 
             
             
-        })?.resume()
+        }).resume()
         
         
 }

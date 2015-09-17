@@ -33,7 +33,7 @@ class SongTableViewController: UITableViewController {
         
        // print("tableIndex-------\(self.tablesIndex)")
         //print("songIdArray------\(self.songIdArray)")
-        let dictionary: NSDictionary = NSDictionary(objectsAndKeys: (songIdArray?.objectAtIndex(tablesIndex))!, "id")
+        let dictionary: NSDictionary = NSDictionary(object: (songIdArray?.objectAtIndex(tablesIndex))!, forKey: "id")
         var jsonData: NSData = NSData()
         
         do {
@@ -74,7 +74,7 @@ class SongTableViewController: UITableViewController {
             print("songNames-----\(self.songArray.songNames.count)")
             print("songTimes-----\(self.songArray.songTimes.count)")
             print("songMp3Url-----\(self.songArray.songMp3Url.count)")
-        })?.resume()
+        }).resume()
         
         
         

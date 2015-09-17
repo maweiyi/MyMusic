@@ -14,6 +14,7 @@ class SongDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //今天不想写
     }
 
     override func didReceiveMemoryWarning() {
