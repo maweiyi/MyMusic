@@ -113,6 +113,14 @@ class SongTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 66.0
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let songDetail: SongDetailViewController = storyboard.instantiateViewControllerWithIdentifier("Song") as! SongDetailViewController
+        
+        self.navigationController?.pushViewController(songDetail, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -10,13 +10,47 @@ import UIKit
 
 class SongDetailViewController: UIViewController {
 
+    @IBOutlet weak var beginLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
+    
+    @IBOutlet weak var songTimeSlider: UISlider!
+    
+    @IBOutlet weak var collectBtn: UIButton!
+    
+    @IBOutlet weak var downLoadBtn: UIButton!
+    
+    @IBOutlet weak var randomBtn: UIButton!
+    
+    @IBOutlet weak var preSongBtn: UIButton!
+    @IBOutlet weak var playSongBtn: UIButton!
+    @IBOutlet weak var nextSongBtn: UIButton!
+    
+    @IBAction func collectBtnAction(sender: AnyObject) {
+    }
+    
+    @IBAction func downLoadAction(sender: AnyObject) {
+    }
+    @IBAction func randomBtnAction(sender: AnyObject) {
+    }
+    
+    @IBAction func preBtnAction(sender: AnyObject) {
+    }
+    
+    @IBAction func playActionBtn(sender: AnyObject) {
+    }
+    
+    @IBAction func nextSongAction(sender: AnyObject) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //今天不想写
+    
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
