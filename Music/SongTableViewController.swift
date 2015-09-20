@@ -118,6 +118,9 @@ class SongTableViewController: UITableViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let songDetail: SongDetailViewController = storyboard.instantiateViewControllerWithIdentifier("Song") as! SongDetailViewController
+        songDetail.song.songString = NSString(format: "%d", (self.songIdArray?.objectAtIndex(indexPath.row).integerValue)!)
+        print("\(songDetail.song.songString)")
+        
         
         self.navigationController?.pushViewController(songDetail, animated: true)
     }

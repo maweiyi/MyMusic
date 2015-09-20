@@ -42,12 +42,18 @@ class SongDetailViewController: UIViewController {
     @IBAction func nextSongAction(sender: AnyObject) {
     }
     
+    var song: SongDetailList = SongDetailList()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //今天不想写
+        print("\(self.song.songString)")
+        
+        self.getLyric()
+        
     
     }
     
@@ -66,5 +72,50 @@ class SongDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func getLyric() {
+        
+        let dictionary: NSDictionary = NSDictionary(object: self.song.songString, forKey: "id")
+        var jsonData: NSData = NSData()
+        
+        do {
+            
+            jsonData = try NSJSONSerialization.dataWithJSONObject(dictionary, options: NSJSONWritingOptions.PrettyPrinted)
+        } catch {
+            
+        }
+        
+        let stringUrl: NSString = NSString(string: "http://127.0.0.1:8000/music/hello4/")
+        let url: NSURL = NSURL(string: stringUrl as String)!
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = jsonData
+        
+        let session: NSURLSession = NSURLSession.sharedSession()
+        
+        session.dataTaskWithRequest(request, completionHandler: {
+            (data, response, error) in
+           /* var jsonArray: NSMutableArray? = NSMutableArray()
+            
+            do{
+                
+                jsonArray = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSMutableArray
+            } catch{
+                
+            }*/
+            
+            var jsonDict: NSMutableDictionary = NSMutableDictionary()
+            do {
+                jsonDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSMutableDictionary
+            } catch {
+                
+            }
+            
+            print("\(jsonDict)")
+            
+            
+        
+    }).resume()
+    }
 
 }
