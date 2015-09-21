@@ -43,6 +43,10 @@ class SongDetailViewController: UIViewController {
     }
     
     var song: SongDetailList = SongDetailList()
+    //歌词字符串
+    var songLyric: NSString = NSString()
+    
+    var lrcDictionary: NSMutableDictionary = NSMutableDictionary()
     
     
     override func viewDidLoad() {
@@ -111,12 +115,65 @@ class SongDetailViewController: UIViewController {
                 
             }
             
-            let st = jsonDict.objectForKey("id")
-            print("\(st)")
+           // let st = jsonDict.objectForKey("id")
             
+            self.songLyric = NSString(string: jsonDict.objectForKey("id") as! NSString)
+            //print("\(self.songLyric)")
+            self.splitLyric()
             
         
     }).resume()
+    }
+    
+    func splitLyric() {
+        
+        let array: NSArray = self.songLyric.componentsSeparatedByString("\n")
+        for var i = 0; i < array.count; i++ {
+            let lineString: NSString = array.objectAtIndex(i) as! NSString
+            let lineArray: NSArray = lineString.componentsSeparatedByString("]")
+            let a = lineArray.objectAtIndex(0) as! NSString
+            print("a-------\(a.length)")
+            
+            if a.length > 8 {
+                let str1: NSString = lineString.substringWithRange(NSRange(location: 3, length: 1))
+                let str2: NSString = lineString.substringWithRange(NSRange(location: 6, length: 1))
+                print("str1----\(str1)")
+                print("str2----\(str2)")
+                
+                if (str1.isEqualToString(":") && str2.isEqualToString(".")) {
+                    for var i = 0; i < lineArray.count - 1; i++ {
+                        let lrcStr: NSString = lineArray.objectAtIndex(lineArray.count - 1) as! NSString
+                        let timeStr: NSString = self.timeToSecond(lineArray.objectAtIndex(i) as! NSString)
+                        self.lrcDictionary.setValue(lrcStr, forKey: timeStr as String)
+                     print("hello World-------")
+                    }
+                }
+                
+                
+            }
+            
+            
+            
+        }
+        
+        print("----------\(self.lrcDictionary)")
+        
+        
+    }
+    
+    func timeToSecond(time: NSString) -> NSString {
+        
+        let minuts: NSString = time.substringWithRange(NSRange(location: 1, length: 2))
+        let second: NSString = time.substringWithRange(NSRange(location: 4, length: 2))
+        let minutsInt: NSInteger = minuts.integerValue
+        let secondInt: NSInteger = second.integerValue
+        
+        let totalTime: NSInteger = minutsInt * 60 + secondInt
+        
+        let timeString: NSString = NSString(format: "%d", totalTime)
+        
+        return timeString
+        
     }
 
 }
