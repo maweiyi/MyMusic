@@ -111,7 +111,8 @@ class SongDetailViewController: UIViewController {
                 
             }
             
-            print("\(jsonDict)")
+            let st = jsonDict.objectForKey("id")
+            print("\(st)")
             
             
         

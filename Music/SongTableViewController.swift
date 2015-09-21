@@ -70,7 +70,7 @@ class SongTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.tableView.setNeedsDisplay()
             
-            print("songIDS----\(self.songArray.songIDS.count)")
+            print("songIDS----\(self.songArray.songIDS)")
             print("songNames-----\(self.songArray.songNames.count)")
             print("songTimes-----\(self.songArray.songTimes.count)")
             print("songMp3Url-----\(self.songArray.songMp3Url.count)")
@@ -118,7 +118,7 @@ class SongTableViewController: UITableViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let songDetail: SongDetailViewController = storyboard.instantiateViewControllerWithIdentifier("Song") as! SongDetailViewController
-        songDetail.song.songString = NSString(format: "%d", (self.songIdArray?.objectAtIndex(indexPath.row).integerValue)!)
+        songDetail.song.songString = NSString(format: "%d", (self.songArray.songIDS.objectAtIndex(indexPath.row).integerValue)!)
         print("\(songDetail.song.songString)")
         
         
