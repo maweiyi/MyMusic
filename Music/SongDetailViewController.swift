@@ -42,6 +42,9 @@ class SongDetailViewController: UIViewController {
     @IBAction func nextSongAction(sender: AnyObject) {
     }
     
+    
+    @IBOutlet weak var showlyric: UITableView!
+    
     var song: SongDetailList = SongDetailList()
     //歌词字符串
     var songLyric: NSString = NSString()
@@ -55,6 +58,10 @@ class SongDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         //今天不想写
         print("\(self.song.songString)")
+        self.songTimeSlider.setThumbImage(UIImage(named: "player-progress-point-h"), forState: UIControlState.Normal)
+        
+        self.showlyric.backgroundColor = UIColor.clearColor()
+        self.showlyric.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.getLyric()
         

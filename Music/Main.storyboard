@@ -132,7 +132,7 @@
                         <viewControllerLayoutGuide type="top" id="g6O-OF-QQu"/>
                         <viewControllerLayoutGuide type="bottom" id="dHV-tA-5v8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="faV-2c-IgH">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="faV-2c-IgH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -200,17 +200,24 @@
                                     <action selector="downLoadAction:" destination="5r7-hQ-bd5" eventType="touchUpInside" id="VUn-ea-3Tk"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g1g-pP-I2d">
+                                <rect key="frame" x="20" y="184" width="560" height="327"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dHV-tA-5v8" firstAttribute="top" secondItem="u8B-Xs-SCC" secondAttribute="bottom" constant="501" id="26K-ne-GnQ"/>
                             <constraint firstItem="Fdg-kj-4MT" firstAttribute="top" secondItem="cwE-d9-hG9" secondAttribute="bottom" constant="47" id="8fL-Jn-0T2"/>
+                            <constraint firstItem="g1g-pP-I2d" firstAttribute="leading" secondItem="faV-2c-IgH" secondAttribute="leading" constant="20" id="8lU-3I-gex"/>
                             <constraint firstItem="u8B-Xs-SCC" firstAttribute="centerY" secondItem="HBc-XV-dKt" secondAttribute="centerY" id="CtR-un-xBA"/>
+                            <constraint firstItem="MSu-JV-50v" firstAttribute="top" secondItem="g1g-pP-I2d" secondAttribute="bottom" constant="19" id="Djq-RS-BOQ"/>
                             <constraint firstAttribute="trailing" secondItem="u8B-Xs-SCC" secondAttribute="trailing" constant="20" id="Enu-Ux-38Y"/>
                             <constraint firstItem="dHV-tA-5v8" firstAttribute="top" secondItem="OOT-ea-3y2" secondAttribute="bottom" constant="42" id="GLx-Zm-w3t"/>
                             <constraint firstItem="HBc-XV-dKt" firstAttribute="leading" secondItem="cwE-d9-hG9" secondAttribute="trailing" constant="8" id="HHq-q5-XPV"/>
                             <constraint firstItem="u8B-Xs-SCC" firstAttribute="leading" secondItem="HBc-XV-dKt" secondAttribute="trailing" constant="8" id="ICi-wL-tIL"/>
                             <constraint firstItem="cwE-d9-hG9" firstAttribute="leading" secondItem="faV-2c-IgH" secondAttribute="leading" constant="20" id="JFf-Dx-UcD"/>
+                            <constraint firstAttribute="trailing" secondItem="g1g-pP-I2d" secondAttribute="trailing" constant="20" id="LCI-lx-sGQ"/>
                             <constraint firstItem="u8B-Xs-SCC" firstAttribute="firstBaseline" secondItem="cwE-d9-hG9" secondAttribute="firstBaseline" id="MJ6-Zh-cOX"/>
                             <constraint firstItem="OOT-ea-3y2" firstAttribute="top" secondItem="U5D-ac-lDo" secondAttribute="top" id="Pe7-iD-fPe"/>
                             <constraint firstItem="cwE-d9-hG9" firstAttribute="height" secondItem="HBc-XV-dKt" secondAttribute="height" id="QfD-TJ-dfA"/>
@@ -218,6 +225,7 @@
                             <constraint firstItem="U5D-ac-lDo" firstAttribute="leading" secondItem="MSu-JV-50v" secondAttribute="trailing" constant="60" id="cgJ-Bn-dsi"/>
                             <constraint firstItem="u8B-Xs-SCC" firstAttribute="baseline" secondItem="cwE-d9-hG9" secondAttribute="baseline" id="ecY-HT-vrm"/>
                             <constraint firstItem="hHW-Sp-vdb" firstAttribute="top" secondItem="Fdg-kj-4MT" secondAttribute="top" id="emx-7l-RsJ"/>
+                            <constraint firstItem="g1g-pP-I2d" firstAttribute="top" secondItem="hHW-Sp-vdb" secondAttribute="bottom" constant="15" id="fQI-2u-x2b"/>
                             <constraint firstItem="OOT-ea-3y2" firstAttribute="leading" secondItem="faV-2c-IgH" secondAttribute="leading" constant="20" id="grW-Y3-x13"/>
                             <constraint firstItem="OOT-ea-3y2" firstAttribute="top" secondItem="hlC-4O-fXf" secondAttribute="top" id="h7X-fI-AD4"/>
                             <constraint firstItem="MSu-JV-50v" firstAttribute="centerX" secondItem="HBc-XV-dKt" secondAttribute="centerX" id="i3e-ZS-DYG"/>
@@ -236,6 +244,7 @@
                         <outlet property="playSongBtn" destination="MSu-JV-50v" id="qX7-Dm-vlw"/>
                         <outlet property="preSongBtn" destination="hlC-4O-fXf" id="d2S-TA-1bg"/>
                         <outlet property="randomBtn" destination="OOT-ea-3y2" id="fe5-Ut-AoS"/>
+                        <outlet property="showlyric" destination="g1g-pP-I2d" id="KDc-SF-AY4"/>
                         <outlet property="songTimeSlider" destination="HBc-XV-dKt" id="NNx-jU-zAN"/>
                     </connections>
                 </viewController>
