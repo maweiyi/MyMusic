@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SongDetailViewController: UIViewController {
+class SongDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var beginLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
@@ -50,6 +50,9 @@ class SongDetailViewController: UIViewController {
     var songLyric: NSString = NSString()
     
     var lrcDictionary: NSMutableDictionary = NSMutableDictionary()
+    var lyricArray: NSMutableArray = NSMutableArray()
+    var array: NSArray = NSArray()
+    var cellCount: NSInteger = 0
     
     
     override func viewDidLoad() {
@@ -62,8 +65,14 @@ class SongDetailViewController: UIViewController {
         
         self.showlyric.backgroundColor = UIColor.clearColor()
         self.showlyric.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.showlyric.hidden = true
+        self.showlyric.delegate = self
+        self.showlyric.dataSource = self
+        self.showlyric.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
         
         self.getLyric()
+        
+        print("self.lyricArray\(self.array.count)")
         
     
     }
@@ -134,25 +143,26 @@ class SongDetailViewController: UIViewController {
     
     func splitLyric() {
         
-        let array: NSArray = self.songLyric.componentsSeparatedByString("\n")
+        self.array = self.songLyric.componentsSeparatedByString("\n")
+        self.cellCount = self.array.count
         for var i = 0; i < array.count; i++ {
             let lineString: NSString = array.objectAtIndex(i) as! NSString
             let lineArray: NSArray = lineString.componentsSeparatedByString("]")
             let a = lineArray.objectAtIndex(0) as! NSString
-            print("a-------\(a.length)")
+            //print("a-------\(a.length)")
             
             if a.length > 8 {
                 let str1: NSString = lineString.substringWithRange(NSRange(location: 3, length: 1))
                 let str2: NSString = lineString.substringWithRange(NSRange(location: 6, length: 1))
-                print("str1----\(str1)")
-                print("str2----\(str2)")
+                //print("str1----\(str1)")
+                //print("str2----\(str2)")
                 
                 if (str1.isEqualToString(":") && str2.isEqualToString(".")) {
                     for var i = 0; i < lineArray.count - 1; i++ {
                         let lrcStr: NSString = lineArray.objectAtIndex(lineArray.count - 1) as! NSString
                         let timeStr: NSString = self.timeToSecond(lineArray.objectAtIndex(i) as! NSString)
                         self.lrcDictionary.setValue(lrcStr, forKey: timeStr as String)
-                     print("hello World-------")
+                     //print("hello World-------")
                     }
                 }
                 
@@ -162,8 +172,10 @@ class SongDetailViewController: UIViewController {
             
             
         }
+        self.showlyric.hidden = false
+        self.showlyric.reloadData()
         
-        print("----------\(self.lrcDictionary)")
+        //print("----------\(self.lrcDictionary)")
         
         
     }
@@ -181,6 +193,25 @@ class SongDetailViewController: UIViewController {
         
         return timeString
         
+    }
+    
+    func showLyric() {
+        
+        
+        
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("-----\(self.array.count)")
+        return self.cellCount
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //let cell: UITableViewCell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        cell.textLabel?.text = "maweiyi"
+        return cell
     }
 
 }

@@ -70,10 +70,10 @@ class SongTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.tableView.setNeedsDisplay()
             
-            print("songIDS----\(self.songArray.songIDS)")
-            print("songNames-----\(self.songArray.songNames.count)")
-            print("songTimes-----\(self.songArray.songTimes.count)")
-            print("songMp3Url-----\(self.songArray.songMp3Url.count)")
+            //print("songIDS----\(self.songArray.songIDS)")
+            //print("songNames-----\(self.songArray.songNames.count)")
+            //print("songTimes-----\(self.songArray.songTimes.count)")
+            //print("songMp3Url-----\(self.songArray.songMp3Url.count)")
         }).resume()
         
         
