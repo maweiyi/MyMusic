@@ -14,12 +14,14 @@ class SongDetailList: NSObject {
     var songNames: NSMutableArray
     var songMp3Url: NSMutableArray
     var songString: NSString
+    var songMp3: NSString
     override init() {
         self.songIDS = NSMutableArray()
         self.songTimes = NSMutableArray()
         self.songNames = NSMutableArray()
         self.songMp3Url = NSMutableArray()
         self.songString = NSString()
+        self.songMp3 = NSString()
     }
 
 }

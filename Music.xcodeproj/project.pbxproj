@@ -17,6 +17,7 @@
 		E4864FB41BA7F16D000EE5B6 /* TopPlayLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864FB31BA7F16D000EE5B6 /* TopPlayLists.swift */; };
 		E4864FB61BA7F256000EE5B6 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864FB51BA7F256000EE5B6 /* TableCell.swift */; };
 		E4E202D41BA97FD400FB4475 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E202D31BA97FD400FB4475 /* SongDetailViewController.swift */; };
+		E4E349511BB0016600BD3E5C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E349501BB0016600BD3E5C /* AVFoundation.framework */; };
 		E4FE943D1BA80FB20000A549 /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		E4864FB31BA7F16D000EE5B6 /* TopPlayLists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopPlayLists.swift; sourceTree = "<group>"; };
 		E4864FB51BA7F256000EE5B6 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		E4E202D31BA97FD400FB4475 /* SongDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
+		E4E349501BB0016600BD3E5C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E349511BB0016600BD3E5C /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +79,7 @@
 		E4864FAE1BA7EDAC000EE5B6 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				E4E349501BB0016600BD3E5C /* AVFoundation.framework */,
 				E4864FB11BA7F0E6000EE5B6 /* Main.storyboard */,
 				E4864FA01BA7EBBA000EE5B6 /* Music.xcdatamodeld */,
 				E4864FA81BA7EBBA000EE5B6 /* Info.plist */,
@@ -132,6 +136,7 @@
 		E4864F8E1BA7EBBA000EE5B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = CodeMonkey;
 				TargetAttributes = {

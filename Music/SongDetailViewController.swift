@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SongDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -37,6 +38,8 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func playActionBtn(sender: AnyObject) {
+        
+        self.beginPlay()
     }
     
     @IBAction func nextSongAction(sender: AnyObject) {
@@ -48,11 +51,19 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var song: SongDetailList = SongDetailList()
     //歌词字符串
     var songLyric: NSString = NSString()
+    var allCell: NSMutableArray = NSMutableArray()
     
     var lrcDictionary: NSMutableDictionary = NSMutableDictionary()
     var lyricArray: NSMutableArray = NSMutableArray()
     var array: NSArray = NSArray()
     var cellCount: NSInteger = 0
+
+    
+    var player: AVAudioPlayer?
+    
+    var time: NSMutableArray = NSMutableArray()
+    var lyric: NSMutableArray = NSMutableArray()
+    var datasong: NSData = NSData()
     
     
     override func viewDidLoad() {
@@ -72,9 +83,18 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.getLyric()
         
-        print("self.lyricArray\(self.array.count)")
         
+        print("self.lyricArray\(self.array.count)")
+        let url: NSURL = NSURL(string: self.song.songMp3 as String)!
+        let data: NSData = NSData(contentsOfURL: url)!
+        self.datasong = data
     
+    }
+    
+    func updateTime() {
+        
+        print("Maweiyi")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,18 +182,22 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         let lrcStr: NSString = lineArray.objectAtIndex(lineArray.count - 1) as! NSString
                         let timeStr: NSString = self.timeToSecond(lineArray.objectAtIndex(i) as! NSString)
                         self.lrcDictionary.setValue(lrcStr, forKey: timeStr as String)
-                     //print("hello World-------")
-                    }
+                        self.time.addObject(timeStr)
+                        self.lyric.addObject(lrcStr)
+                     print("hello World-------")
+                }
                 }
                 
                 
             }
             
-            
+            //print("\(self.time[i])")
+           // print("\(self.lyric[i])")
             
         }
+        
         self.showlyric.hidden = false
-        self.showlyric.reloadData()
+        //self.showlyric.reloadData()
         
         //print("----------\(self.lrcDictionary)")
         
@@ -197,21 +221,73 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func showLyric() {
         
+        let index: NSInteger = self.getNowRow()
+        let path: NSIndexPath = NSIndexPath(forRow: index, inSection: 0)
+        self.showlyric.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
+        
+        let cell: UITableViewCell = self.showlyric.cellForRowAtIndexPath(path)!
+        
+        for cells in self.allCell {
+            
+            let c: UITableViewCell = cells as! UITableViewCell
+            
+            c.textLabel?.textColor = UIColor.grayColor()
+            c.textLabel?.font = UIFont.boldSystemFontOfSize(16)
+        }
+        
+        cell.textLabel?.textColor = UIColor.redColor()
+        cell.textLabel?.font = UIFont.boldSystemFontOfSize(18)
+        cell.textLabel?.adjustsFontSizeToFitWidth
         
         
         
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("-----\(self.array.count)")
-        return self.cellCount
+        return self.lyric.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell: UITableViewCell = UITableViewCell()
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = "maweiyi"
+        self.allCell.addObject(cell)
+        cell.textLabel?.text = self.lyric[indexPath.row] as! String
+        cell.textLabel?.textColor = UIColor.grayColor()
+        cell.textLabel?.textAlignment = NSTextAlignment.Center
         return cell
     }
+    
+    func beginPlay() {
+        
+        do {
+            
+        self.player = try AVAudioPlayer(data: datasong)
+        } catch {
+            
+        }
+        
+        player?.numberOfLoops = 0
+        player?.prepareToPlay()
+        player?.play()
+        
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "showLyric", userInfo: nil, repeats: true)
+    }
+    
+    func getNowRow() -> NSInteger {
+        var tem: NSInteger = 0
+        for num in self.time {
+            if num.doubleValue > self.player?.currentTime  {
+                break
+                
+            }
+            tem++
+        }
+        
+        print("tem----\(tem)")
+        return tem - 1
+    
 
+}
 }

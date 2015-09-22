@@ -49,7 +49,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         //var layer: CALayer
-        /*let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
+       /* let stringUrl: NSString = NSString(string: self.topPlayLists.listImage[indexPath.row] as! String)
         let url: NSURL = NSURL(string: stringUrl as String)!
         print("\(url)")
         var data: NSData = NSData(contentsOfURL: url)!
