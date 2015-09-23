@@ -179,6 +179,7 @@
                                     <constraint firstAttribute="height" constant="33" id="zDQ-3u-qwy"/>
                                 </constraints>
                                 <state key="normal" image="play"/>
+                                <state key="selected" image="pause"/>
                                 <connections>
                                     <action selector="playActionBtn:" destination="5r7-hQ-bd5" eventType="touchUpInside" id="ttK-ah-XHX"/>
                                 </connections>
@@ -303,6 +304,7 @@
         <image name="nav_music" width="36" height="36"/>
         <image name="nextSong" width="16" height="16"/>
         <image name="order" width="16" height="15"/>
+        <image name="pause" width="64" height="64"/>
         <image name="play" width="64" height="64"/>
         <image name="preSong" width="16" height="16"/>
         <image name="tabbarMovie" width="31" height="23"/>

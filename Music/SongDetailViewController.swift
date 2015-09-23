@@ -37,9 +37,13 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func preBtnAction(sender: AnyObject) {
     }
     
-    @IBAction func playActionBtn(sender: AnyObject) {
+    @IBAction func playActionBtn(sender: UIButton) {
         
-        self.beginPlay()
+               //sender.setImage(UIImage(named: "pause"), forState: UIControlState.Selected)
+        sender.setBackgroundImage(UIImage(named: "pause"), forState: UIControlState.Selected)
+        sender.selected = !sender.selected
+        self.stop();
+
     }
     
     @IBAction func nextSongAction(sender: AnyObject) {
@@ -88,6 +92,9 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let url: NSURL = NSURL(string: self.song.songMp3 as String)!
         let data: NSData = NSData(contentsOfURL: url)!
         self.datasong = data
+        
+        self.beginLabel.text = "00:00";
+        self.beginPlay()
     
     }
     
@@ -290,4 +297,11 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
 
 }
+    func stop() {
+        if (self.player!.playing) {
+            self.player?.pause()
+        } else {
+            self.player?.play()
+        }
+    }
 }
