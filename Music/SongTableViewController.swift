@@ -15,12 +15,12 @@ class SongTableViewController: UITableViewController {
     var songArray: SongDetailList = SongDetailList()
     
      //生成一个单例
-    class var songShareInstace: SongTableViewController {
+    /*class var songShareInstace: SongTableViewController {
         struct SingleTon {
             static let instance = SongTableViewController()
         }
         return SingleTon.instance
-    }
+    }*/
     override func viewDidLoad() {
         super.viewDidLoad()
         // self.tableView.hidden = true

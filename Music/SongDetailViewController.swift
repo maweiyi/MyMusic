@@ -260,7 +260,7 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         //let cell: UITableViewCell = UITableViewCell()
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         self.allCell.addObject(cell)
-        cell.textLabel?.text = self.lyric[indexPath.row] as! String
+        cell.textLabel!.text = self.lyric[indexPath.row] as? String
         cell.textLabel?.textColor = UIColor.grayColor()
         cell.textLabel?.textAlignment = NSTextAlignment.Center
         return cell
@@ -292,7 +292,6 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             tem++
         }
         
-        print("tem----\(tem)")
         return tem - 1
     
 

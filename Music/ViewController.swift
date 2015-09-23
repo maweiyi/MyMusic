@@ -74,7 +74,7 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let songTableView: SongTableViewController = SongTableViewController.songShareInstace
+        let songTableView: SongTableViewController = SongTableViewController()
         songTableView.songIdArray = topPlayLists.listId
         songTableView.tablesIndex = indexPath.row
         //songTableView.viewDidLoad()
