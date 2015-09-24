@@ -71,7 +71,7 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var lyric: NSMutableArray = NSMutableArray()
     var datasong: NSData = NSData()
     
-    
+    var count: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -97,7 +97,11 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.beginLabel.text = "00:00";
         self.endLabel.text = self.changeTime(self.song.songTime) as String
+        
+        self.songTimeSlider.minimumValue = 0.0
+        self.songTimeSlider.maximumValue = Float((self.song.songTime.integerValue) / 1000)
         self.beginPlay()
+        self.count = 0
     
     }
     
@@ -264,7 +268,7 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.adjustsFontSizeToFitWidth
         
         
-        if self.player!.playing {
+        if (self.player!.playing && self.count!%2 == 0) {
             
             let time: Double = (self.player?.currentTime)!
             
@@ -274,6 +278,7 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
            // print("self.beginLable.text-----\(self.beginLabel.text)")
             
         }
+        self.count!++
         
         let ti: Double = (self.player?.currentTime)!
         let tv: Int = self.song.songTime.integerValue / 1000
