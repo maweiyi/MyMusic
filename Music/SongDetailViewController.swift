@@ -52,6 +52,8 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var showlyric: UITableView!
     
+    var timeColock: NSTimer?
+    
     var song: SongDetailList = SongDetailList()
     //歌词字符串
     var songLyric: NSString = NSString()
@@ -262,7 +264,41 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.adjustsFontSizeToFitWidth
         
         
+        if self.player!.playing {
+            
+            let time: Double = (self.player?.currentTime)!
+            
+            let timeStr: NSString = self.getFomatByTime(time)
+            self.beginLabel.text = timeStr as String
+            self.songTimeSlider.value++
+           // print("self.beginLable.text-----\(self.beginLabel.text)")
+            
+        }
         
+        let ti: Double = (self.player?.currentTime)!
+        let tv: Int = self.song.songTime.integerValue / 1000
+        print("Int(self.song.songTime.doubleValue) - Int(ti) < 1\(Int(tv))-----\(Int(ti))")
+        if (Int(tv) - Int(ti) < 1) {
+            
+            print("Int(self.song.songTime.doubleValue) - Int(ti) < 1\(Int(self.song.songTime.doubleValue))-----\(Int(ti))")
+            
+            self.timeColock?.invalidate()
+            self.timeColock = nil
+            self.beginLabel.text = self.changeTime(self.song.songTime) as String
+            
+        }
+        
+        
+        
+    }
+    
+    func getFomatByTime(time: Double) -> NSString {
+        let seconds: Int = Int(time)
+        let str: NSString = NSString(format: "%02d:%02d", seconds / 60, seconds % 60)
+        
+        //print("getFomatByTime----\(seconds)")
+        
+        return str
     }
     
     
@@ -293,8 +329,9 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         player?.numberOfLoops = 0
         player?.prepareToPlay()
         player?.play()
-        
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "showLyric", userInfo: nil, repeats: true)
+        if(timeColock == nil) {
+        self.timeColock = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "showLyric", userInfo: nil, repeats: true)
+        }
     }
     
     func getNowRow() -> NSInteger {
