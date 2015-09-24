@@ -15,6 +15,7 @@ class SongDetailList: NSObject {
     var songMp3Url: NSMutableArray
     var songString: NSString
     var songMp3: NSString
+    var songTime: NSString
     override init() {
         self.songIDS = NSMutableArray()
         self.songTimes = NSMutableArray()
@@ -22,6 +23,7 @@ class SongDetailList: NSObject {
         self.songMp3Url = NSMutableArray()
         self.songString = NSString()
         self.songMp3 = NSString()
+        self.songTime = NSString()
     }
 
 }

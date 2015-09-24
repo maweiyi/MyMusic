@@ -120,7 +120,7 @@ class SongTableViewController: UITableViewController {
         let songDetail: SongDetailViewController = storyboard.instantiateViewControllerWithIdentifier("Song") as! SongDetailViewController
         songDetail.song.songString = NSString(format: "%d", (self.songArray.songIDS.objectAtIndex(indexPath.row).integerValue)!)
         songDetail.song.songMp3 = self.songArray.songMp3Url.objectAtIndex(indexPath.row) as! NSString
-        
+        songDetail.song.songTime = NSString(format: "%d", (self.songArray.songTimes.objectAtIndex(indexPath.row).integerValue)!);
         
         self.navigationController?.pushViewController(songDetail, animated: true)
     }

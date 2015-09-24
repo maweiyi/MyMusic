@@ -40,7 +40,7 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func playActionBtn(sender: UIButton) {
         
                //sender.setImage(UIImage(named: "pause"), forState: UIControlState.Selected)
-        sender.setBackgroundImage(UIImage(named: "pause"), forState: UIControlState.Selected)
+        sender.setBackgroundImage(UIImage(named: "play"), forState: UIControlState.Selected)
         sender.selected = !sender.selected
         self.stop();
 
@@ -94,10 +94,26 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.datasong = data
         
         self.beginLabel.text = "00:00";
+        self.endLabel.text = self.changeTime(self.song.songTime) as String
         self.beginPlay()
     
     }
     
+    func changeTime(timeString: NSString) -> NSString {
+        
+        var totalTime: NSInteger = NSInteger()
+        totalTime = timeString.integerValue
+        let totalSeconds: Int = totalTime / 1000
+        let minutes: NSInteger = totalSeconds / 60
+        let seconds: NSInteger = totalSeconds % 60
+        
+        let time: NSString = (NSString(format: "%d", minutes) as String) + ":" + (NSString(format: "%d", seconds) as String)
+        
+        return time
+        
+        
+    }
+
     func updateTime() {
         
         print("Maweiyi")
@@ -191,7 +207,6 @@ class SongDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.lrcDictionary.setValue(lrcStr, forKey: timeStr as String)
                         self.time.addObject(timeStr)
                         self.lyric.addObject(lrcStr)
-                     print("hello World-------")
                 }
                 }
                 
