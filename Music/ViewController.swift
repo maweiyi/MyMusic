@@ -106,14 +106,6 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
             self.topPlayLists.listId.addObjectsFromArray((jsonArray?.objectAtIndex(0))! as! [AnyObject])
             self.topPlayLists.listName.addObjectsFromArray(jsonArray?.objectAtIndex(1) as! [AnyObject])
             self.topPlayLists.listImage.addObjectsFromArray(jsonArray?.objectAtIndex(2) as! [AnyObject])
-           /* print("\(self.topPlayLists.listId.count)")
-            
-            print("\(self.topPlayLists.listId)")
-            print("\(self.topPlayLists.listImage)")
-            print("\(self.topPlayLists.listName)")
-
-           */
-            
             self.tableView.hidden = false
             self.tableView.reloadData()
             
