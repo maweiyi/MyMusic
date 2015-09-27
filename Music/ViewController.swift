@@ -20,9 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
 
-        /*self.viewAppr.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20);
-        self.viewAppr.backgroundColor = UIColor(red: 233/255, green: 142/255, blue: 158/255, alpha: 1)
-        self.view.addSubview(self.viewAppr)*/
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerClass(TableCell.classForCoder(), forCellReuseIdentifier: "Cell")
