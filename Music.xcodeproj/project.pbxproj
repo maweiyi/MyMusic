@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4308AFB1BB939FE00EC7D7F /* SingerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4308AFA1BB939FE00EC7D7F /* SingerCollectionView.swift */; settings = {ASSET_TAGS = (); }; };
 		E43482FB1BA94CE800FD0C4B /* SongDetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43482FA1BA94CE800FD0C4B /* SongDetailList.swift */; };
 		E4864F9A1BA7EBBA000EE5B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864F991BA7EBBA000EE5B6 /* AppDelegate.swift */; };
 		E4864F9C1BA7EBBA000EE5B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4864F9B1BA7EBBA000EE5B6 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4308AFA1BB939FE00EC7D7F /* SingerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingerCollectionView.swift; sourceTree = "<group>"; };
 		E43482FA1BA94CE800FD0C4B /* SongDetailList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongDetailList.swift; sourceTree = "<group>"; };
 		E4864F961BA7EBBA000EE5B6 /* Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Music.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4864F991BA7EBBA000EE5B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				E4864FB51BA7F256000EE5B6 /* TableCell.swift */,
 				E4FE943C1BA80FB20000A549 /* SongTableViewController.swift */,
 				E4E202D31BA97FD400FB4475 /* SongDetailViewController.swift */,
+				E4308AFA1BB939FE00EC7D7F /* SingerCollectionView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				E4864F9C1BA7EBBA000EE5B6 /* ViewController.swift in Sources */,
 				E4E202D41BA97FD400FB4475 /* SongDetailViewController.swift in Sources */,
 				E4864FB41BA7F16D000EE5B6 /* TopPlayLists.swift in Sources */,
+				E4308AFB1BB939FE00EC7D7F /* SingerCollectionView.swift in Sources */,
 				E4864F9A1BA7EBBA000EE5B6 /* AppDelegate.swift in Sources */,
 				E43482FB1BA94CE800FD0C4B /* SongDetailList.swift in Sources */,
 				E4FE943D1BA80FB20000A549 /* SongTableViewController.swift in Sources */,

@@ -8,7 +8,7 @@
         <!--热门单曲-->
         <scene sceneID="IZF-d7-erH">
             <objects>
-                <viewController id="7OK-22-v4h" sceneMemberID="viewController">
+                <viewController id="7OK-22-v4h" customClass="SingerCollectionView" customModule="Music" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XwL-XI-XJr"/>
                         <viewControllerLayoutGuide type="bottom" id="bD4-vD-EZn"/>
