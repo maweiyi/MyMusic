@@ -56,6 +56,7 @@ class SingerCollectionView: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
         // Configure the cell
+        self.collectionViewLayout
     
         return cell
     }
