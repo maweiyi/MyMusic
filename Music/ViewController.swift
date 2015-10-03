@@ -90,8 +90,6 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         session.dataTaskWithURL(url, completionHandler: {
             (data, response, error) -> Void in
             
-            // var jsonArray: NSMutableArray = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSMutableArray
-            
             var jsonArray: NSMutableArray? = NSMutableArray()
                 
             do{
