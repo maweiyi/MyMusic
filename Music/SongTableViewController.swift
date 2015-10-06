@@ -14,6 +14,7 @@ class SongTableViewController: UITableViewController {
     var tablesIndex: Int = 0
     var songArray: SongDetailList = SongDetailList()
     
+    
      //生成一个单例
     /*class var songShareInstace: SongTableViewController {
         struct SingleTon {
