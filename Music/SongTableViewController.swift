@@ -56,7 +56,6 @@ class SongTableViewController: UITableViewController {
             } catch{
                 
             }
-            //print("\(jsonArray)")
             self.songArray.songIDS.addObjectsFromArray((jsonArray?.objectAtIndex(0))! as! [AnyObject])
             self.songArray.songNames.addObjectsFromArray((jsonArray?.objectAtIndex(1))! as! [AnyObject])
             self.songArray.songTimes.addObjectsFromArray((jsonArray?.objectAtIndex(2))! as! [AnyObject])
@@ -65,11 +64,7 @@ class SongTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.tableView.setNeedsDisplay()
             
-            //print("songIDS----\(self.songArray.songIDS)")
-            //print("songNames-----\(self.songArray.songNames.count)")
-            //print("songTimes-----\(self.songArray.songTimes.count)")
-            //print("songMp3Url-----\(self.songArray.songMp3Url.count)")
-        }).resume()
+                }).resume()
         
         
         
@@ -79,18 +74,17 @@ class SongTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
-    // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    
         return self.songArray.songNames.count
     }
 
